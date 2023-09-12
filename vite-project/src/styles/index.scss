@@ -1,0 +1,15 @@
+//引入清除默认样式
+@import './reset';
+
+//滚动条外观设计
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+  background-color: #001529;
+}
+::-webkit-scrollbar-thumb{
+  width: 10px;
+  background-color: greenyellow;
+  border-radius: 2px;
+}
