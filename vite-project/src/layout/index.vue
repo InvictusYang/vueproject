@@ -1,7 +1,9 @@
 <template>
   <div class="layout_container">
     <!--左侧菜单-->
-    <div class="layout_sider">123</div>
+    <div class="layout_sider">
+      <Logo></Logo>
+    </div>
     <!--顶部导航-->
     <div class="layout_tabbar">456</div>
     <!--layout_main-->
@@ -13,7 +15,7 @@
 
 
 <script setup lang="ts">
-
+  import Logo from './logo/index.vue'
 </script>
 
 
@@ -21,7 +23,6 @@
   .layout_container{
     width: 100%;
     height: 100vh;
-    background-color: pink;
   }
   .layout_sider{
     width: $base-menu-width;
