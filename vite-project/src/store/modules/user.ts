@@ -4,15 +4,18 @@ import {defineStore} from "pinia";
 import {reqLogin} from "@/api/user";
 //引入数据类型
 import {loginForm,loginResponseData} from "@/api/user/type.ts";
-import type {UserState} from "@/store/modules/types/type.ts";
+import type {UserState} from "./types/type.ts";
 //引入操作本地存储的工具方法
 import {SET_TOKEN,GET_TOKEN} from "@/utils/token.ts";
+//引入路由（常量路由）
+import {constantRoute} from "@/router/routes.ts";
 //创建小仓库
 let useUserStore = defineStore('User',{
     //小仓库存储数据的地方,函数返回的类型是UserState
     state:():UserState=>{
         return {
-            token:GET_TOKEN()//用户唯一标识token,从本地存储里获取
+            token:GET_TOKEN(),//用户唯一标识token,从本地存储里获取
+            menuRoutes:constantRoute//仓库存储生成菜单需要的数组（路由）
         }
     },
     //处理异步或逻辑
