@@ -2,6 +2,8 @@
 export interface loginForm{
     username:string,
     password:string
+    username:string
+    avatar:string
 }
 
 //返回结果中data是一个对象，包含内容是一个token，应为字符串

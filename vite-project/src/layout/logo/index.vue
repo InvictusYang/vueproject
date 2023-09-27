@@ -13,7 +13,11 @@
   import setting from "@/setting.ts"
 </script>
 
-
+<script lang="ts">
+export default {
+  name:'Logo'
+}
+</script>
 <style scoped lang="scss">
   .logo{
     height: $base-menu-logo-height;
@@ -21,10 +25,10 @@
     color: white;
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 12px;
     img{
-      height: 40px;
-      width: 40px;
+      height: 42px;
+      width: 42px;
     }
     p{
       font-size: $base-logo-title-fontsize;

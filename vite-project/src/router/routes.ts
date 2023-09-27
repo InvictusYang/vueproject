@@ -18,9 +18,9 @@ export const constantRoute = [
             component:()=>import('@/layout/index.vue'),
             name:'layout',//名字随意
             meta:{
-                title:"后台",//菜单标题
+                title:"",//菜单标题
                 hidden:false,
-                icon:"Avatar"//菜单左侧图标，支持element-plus全部图标
+                icon:""//菜单左侧图标，支持element-plus全部图标
             },
             // 重定向到home
             redirect:'/home',
@@ -68,6 +68,7 @@ export const constantRoute = [
                 title:'权限管理',
                 icon:'Unlock'
             },
+            redirect: '/acl/user',
             children:[
                 {
                     path:'/acl/user',
@@ -112,6 +113,7 @@ export const constantRoute = [
                 hidden:false,
                 icon:'Goods'
             },
+            redirect: '/product/brand',
             children: [
                 {
                     path:'/product/brand',
