@@ -35,14 +35,16 @@ export default {
 
 
 <style scoped>
-.fade-enter-from{
+.fade-enter-from {
   opacity: 0;
   transform: scale(0);
 }
-.fade-enter-active{
-  transition: all .2s;
+
+.fade-enter-active {
+  transition: all .3s;
 }
-.fade-enter-to{
+
+.fade-enter-to {
   opacity: 1;
   transform: scale(1);
 }

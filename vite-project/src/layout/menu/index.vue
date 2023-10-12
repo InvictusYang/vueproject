@@ -47,7 +47,6 @@ import {useRouter} from "vue-router";
 let $router = useRouter()
 //点击菜单回调，element提供的方法
 const goRoute = (vc:any)=>{
-  console.log($router)
   //路由跳转
   $router.push(vc.index)
 }

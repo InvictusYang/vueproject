@@ -41,5 +41,7 @@ app.use(pinia)
 // })
 //注册模板路由
 app.use(router)
+//引入路由鉴权的文件
+import '@/permission.ts'
 //挂载应用
 app.mount('#app')

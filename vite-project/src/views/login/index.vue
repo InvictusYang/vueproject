@@ -2,7 +2,7 @@
 import {User, Lock} from '@element-plus/icons-vue'
 import {reactive, ref} from 'vue'
 import useUserStore from '@/store/modules/user.ts'
-import {useRouter} from "vue-router"
+import {useRouter,useRoute} from "vue-router"
 import {ElNotification} from "element-plus";
 //获取小仓库对象
 let userStore = useUserStore()
@@ -11,10 +11,12 @@ let loginForms = ref()
 let bagayalo = ref()
 //获取路由器
 let $router = useRouter()
+//获取路由对象
+let $route = useRoute()
 //定义变量控制按钮加载效果
 let loading = ref(false)
 //收集账号和密码数据
-let loginForm = reactive({username: 'admin', password: '111111'})
+let loginForm = reactive({username: 'admin', password: 'atguigu123'})
 //引入时间函数
 import {getTime} from "@/utils/time.ts";
 import {call} from "axios";
@@ -33,7 +35,9 @@ const login = async () => {
     //登录成功逻辑
     await userStore.userLogin(loginForm);
     //编程式导航跳转到home页
-    $router.push('/')
+    //判断登录时是否有query参数，如果有按照query参数跳转，没有则跳home页
+    let redirect:any = $route.query.redirect
+    await $router.push({path: redirect || '/'})
     //登录成功提示信息
     ElNotification({
       type: 'success',

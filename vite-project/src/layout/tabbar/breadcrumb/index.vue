@@ -1,7 +1,7 @@
 <template>
       <!--    顶部左侧静态-->
       <el-icon style="margin-right: 10px" @click="switchIcon">
-        <component :is="LayOutSettingStore.fold?'Fold':'Expand'"></component>
+        <component :is="LayOutSettingStore.fold?'Expand':'Fold'"></component>
       </el-icon>
       <el-breadcrumb separator-icon="ArrowRight">
         <!-- 面包屑动态展示路由名字和标题 -->
