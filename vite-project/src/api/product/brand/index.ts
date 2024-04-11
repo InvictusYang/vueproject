@@ -1,6 +1,9 @@
 //品牌管理接口
+// @ts-ignore
 import request from "@/utils/request.ts";
-import {Brand, BrandResponseData} from "@/api/product/brand/type.ts";
+// @ts-ignore
+import type {Brand, BrandResponseData} from "@/api/product/brand/type.ts";
+
 //品牌管理模块接口地址
 enum API{
     //获取已有品牌接口 GET
@@ -8,7 +11,9 @@ enum API{
     //新增品牌接口 POST
     ADDBRAND_URL = '/admin/product/baseTrademark/save',
     //修改品牌接口 PUT
-    UPDATEBRAND_URL = '/admin/product/baseTrademark/update'
+    UPDATEBRAND_URL = '/admin/product/baseTrademark/update',
+    //删除品牌接口 DELETE
+    DELETEBRAND_URL = '/admin/product/baseTrademark/remove/',
 }
 //获取已有品牌接口方法
 //page：获取第几页，默认第一页
@@ -26,3 +31,5 @@ export const reqAddOrUpdateBrand=(data:Brand)=>{
         return request.post<any,any>(API.ADDBRAND_URL,data)
     }
 }
+//删除品牌接口方法
+export const reqDeleteBrand=(id:number)=>request.delete<any,any>(API.DELETEBRAND_URL+id)

@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 import App from '@/App.vue'
 //引入模板的全局样式
 import '@/styles/index.scss'
+// 暗黑模式需要的样式
+import 'element-plus/theme-chalk/dark/css-vars.css'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 //svg插件需要的配置代码

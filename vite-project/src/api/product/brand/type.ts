@@ -26,3 +26,4 @@ export interface BrandResponseData extends ResponseData{
         pages:number
     }
 }
+

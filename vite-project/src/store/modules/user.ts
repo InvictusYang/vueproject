@@ -7,6 +7,7 @@ import type {loginFormData,loginResponseData,userInfoResponseData} from "@/api/u
 import {SET_TOKEN,GET_TOKEN,REMOVE_TOKEN} from "@/utils/token.ts";
 //引入路由（常量路由）
 import {constantRoute} from "@/router/routes.ts";
+import {UserState} from "@/store/modules/types/type.ts";
 //创建小仓库
 let useUserStore = defineStore('User',{
     //小仓库存储数据的地方,函数返回的类型是UserState

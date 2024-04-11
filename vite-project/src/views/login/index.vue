@@ -16,7 +16,7 @@ let $route = useRoute()
 //定义变量控制按钮加载效果
 let loading = ref(false)
 //收集账号和密码数据
-let loginForm = reactive({username: 'admin', password: 'atguigu123'})
+let loginForm = reactive({username: 'admin', password: '111111'})
 //引入时间函数
 import {getTime} from "@/utils/time.ts";
 import {call} from "axios";

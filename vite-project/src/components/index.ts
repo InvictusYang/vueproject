@@ -1,5 +1,6 @@
 import SvgIcon from './SvgIcon/Index.vue'
 import Pagination from './Pagination/index.vue'
+import Category from './Category/index.vue'
 
 //引入所有element中的图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
@@ -7,7 +8,8 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 const allGlobalComponents = {
     SvgIcon,
-    Pagination
+    Pagination,
+    Category,
 }
 
 //对外暴露插件对象

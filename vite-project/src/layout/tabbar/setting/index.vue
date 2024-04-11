@@ -3,8 +3,32 @@
     </el-button>
     <el-button circle icon="FullScreen" size="small" @click="fullScreen">
     </el-button>
-    <el-button circle icon="Setting" size="small">
-    </el-button>
+  <!--    设置按钮，悬浮就显示-->
+  <el-popover
+      placement="bottom"
+      :width="150"
+      trigger="hover"
+  >
+    <el-form>
+      <el-form-item label="主题颜色">
+        <el-color-picker size="small" v-model="color" show-alpha :predefine="predefineColors" />
+      </el-form-item>
+      <el-form-item label="暗黑模式">
+        <el-switch
+            v-model="dark"
+            class="mt-2"
+            inline-prompt
+            active-icon="Moon"
+            inactive-icon="Sunny"
+            @change="switchDark"
+        />
+      </el-form-item>
+    </el-form>
+    <template #reference>
+      <el-button circle icon="Setting" size="small">
+      </el-button>
+    </template>
+  </el-popover>
     <img :src="userStore.avatar" style="width: 22px;height: 22px; margin:0 10px; border-radius:50%">
   <el-dropdown>
         <span class="el-dropdown-link" style="margin-right: 10px">
@@ -19,6 +43,7 @@
       </el-dropdown-menu>
     </template>
   </el-dropdown>
+
 </template>
 
 <script setup lang="ts">
@@ -28,7 +53,11 @@ import useUserStore from "@/store/modules/user.ts";
 import useLayOutSettingStore from "@/store/modules/setting.ts";
 import {ElNotification} from "element-plus";
 import {getTime} from "@/utils/time.ts";
+import {onMounted, ref} from "vue";
+import { Check, Close } from '@element-plus/icons-vue'
 let LayoutSettingStore = useLayOutSettingStore()
+// 控制暗黑模式按钮
+let dark = ref(false)
 //刷新按钮点击回调
 const updRefresh=()=>{
   LayoutSettingStore.refresh = !LayoutSettingStore.refresh
@@ -39,6 +68,27 @@ let userStore = useUserStore()
 let $router = useRouter()
 //获取路由对象
 let $route = useRoute()
+//取色器颜色
+const color = ref('rgba(255, 69, 0, 0.68)')
+const predefineColors = ref([
+  '#ff4500',
+  '#ff8c00',
+  '#ffd700',
+  '#90ee90',
+  '#00ced1',
+  '#1e90ff',
+  '#c71585',
+  'rgba(255, 69, 0, 0.68)',
+  'rgb(255, 120, 0)',
+  'hsv(51, 100, 98)',
+  'hsva(120, 40, 94, 0.5)',
+  'hsl(181, 100%, 37%)',
+  'hsla(209, 100%, 56%, 0.73)',
+  '#c7158577',
+])
+onMounted(()=>{
+  dark.value = LayoutSettingStore.dark
+})
 //全屏按钮点击回调
 const fullScreen = ()=>{
   //dom对象的一个属性，用来判断当前是不是全屏模式，是返回true，否返回null
@@ -63,6 +113,14 @@ const logout = async ()=>{
     type: 'success',
     message: '退出成功',
   })
+}
+// 切换暗黑模式按钮的回调
+const switchDark = ()=>{
+  LayoutSettingStore.dark=!LayoutSettingStore.dark
+  dark.value = LayoutSettingStore.dark
+  // 获取html根节点
+  let html = document.documentElement
+  LayoutSettingStore.dark?html.className='dark':html.className=''
 }
 </script>
 <script lang="ts">

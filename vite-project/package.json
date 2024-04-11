@@ -16,6 +16,7 @@
     "lint:style": "stylelint src/**/*.{css,scss,vue} --cache --fix"
   },
   "dependencies": {
+    "@antv/g2": "^5.1.18",
     "@element-plus/icons-vue": "^2.1.0",
     "axios": "^1.4.0",
     "element-plus": "^2.3.9",

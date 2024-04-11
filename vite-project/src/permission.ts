@@ -45,7 +45,6 @@ router.beforeEach(async (to:any,from:any,next:any)=>{
                 }
             }
         }
-        next()
     }else{
         //如果指向登录页面，直接跳转放行
         if(to.path == '/login'){

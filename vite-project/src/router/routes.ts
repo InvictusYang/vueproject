@@ -136,6 +136,16 @@ export const constantRoute = [
                     }
                 },
                 {
+                    path:'/product/spu',
+                    component:()=>import('@/views/product/spu/index.vue'),
+                    name:'Spu',
+                    meta:{
+                        title:'spu管理',
+                        hidden: false,
+                        icon:'Stamp'
+                    }
+                },
+                {
                     path:'/product/sku',
                     component:()=>import('@/views/product/sku/index.vue'),
                     name:'Sku',
@@ -145,16 +155,6 @@ export const constantRoute = [
                         icon:'Key'
                     }
                 },
-                {
-                    path:'/product/spu',
-                    component:()=>import('@/views/product/spu/index.vue'),
-                    name:'Spu',
-                    meta:{
-                        title:'spu管理',
-                        hidden: false,
-                        icon:'Stamp'
-                    }
-                }
             ]
         },
 
