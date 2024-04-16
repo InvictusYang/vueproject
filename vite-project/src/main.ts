@@ -16,7 +16,7 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 //引入路由
 import router from './router'
 //引入仓库
-import pinia from './store/index.ts'
+import pinia from './store'
 //获取应用实例对象
 const app = createApp(App)
 
@@ -45,5 +45,8 @@ app.use(pinia)
 app.use(router)
 //引入路由鉴权的文件
 import '@/permission.ts'
+// 引入自定义指令文件
+import {isHasButton} from "@/directive/hasBtn.ts";
+isHasButton(app)
 //挂载应用
 app.mount('#app')

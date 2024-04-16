@@ -5,7 +5,7 @@
     <el-card style="margin: 10px 0">
       <div v-show="scene==0">
         <el-button ref="spuForm" type="primary" size="default" icon="plus" :disabled="!categoryStore.c3Id"
-                   @click="addSpu">添加SPU
+                   @click="addSpu" v-has="`btn.Spu.add`">添加SPU
         </el-button>
         <el-table style="margin: 10px 0" border :data="records">
           <el-table-column label="序号" type="index" align="center" width="80px">

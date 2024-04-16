@@ -11,7 +11,7 @@
     </el-form>
   </el-card>
   <el-card style="margin: 8px 0">
-    <el-button type="primary" icon="plus" @click="addRole">添加角色</el-button>
+    <el-button type="primary" icon="plus" @click="addRole" >添加角色</el-button>
 <!--    <el-button type="warning" icon="delete">批量删除</el-button>-->
     <el-table style="margin: 15px 0" border :data="roleArr">
       <el-table-column type="index" align="center" label="#"></el-table-column>
@@ -89,7 +89,9 @@ import {nextTick, onMounted, reactive, ref} from "vue";
 import {reqAddOrUpdateRole, reqAssignPermission, reqDelRole, reqRoleInfo, reqSetPermission} from "@/api/acl/role";
 import {MenuData, MenuResponseData, Records, RoleData, RoleResponseData} from "@/api/acl/role/type.ts";
 import {ElMessage} from "element-plus";
+import useUserStore from "@/store/modules/user.ts";
 
+let userStore = useUserStore()
 let pageNo = ref<number>(1)
 let pageSize = ref<number>(2)
 // 搜索关键字

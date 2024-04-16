@@ -5,6 +5,9 @@ import type {CategoryObj} from "@/api/product/attr/type.ts";
 export interface UserState{
     token:string|null;
     menuRoutes:RouteRecordRaw[]
+    username:string,
+    avatar:string,
+    buttons:string[]
 }
 
 //定义分类仓库对象的ts类型

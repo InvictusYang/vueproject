@@ -11,7 +11,7 @@
   >
     <el-form>
       <el-form-item label="主题颜色">
-        <el-color-picker size="small" v-model="color" show-alpha :predefine="predefineColors" />
+        <el-color-picker @change="setColor" size="small" v-model="color" show-alpha :predefine="predefineColors" />
       </el-form-item>
       <el-form-item label="暗黑模式">
         <el-switch
@@ -121,6 +121,17 @@ const switchDark = ()=>{
   // 获取html根节点
   let html = document.documentElement
   LayoutSettingStore.dark?html.className='dark':html.className=''
+}
+
+// 主题颜色设置
+const setColor = ()=>{
+  LayoutSettingStore.color = color.value
+  // 通过js修改根节点的样式对象属性与属性值
+  const el = document.documentElement
+  // 获取css变量
+  getComputedStyle(el).getPropertyValue(`--el-color-primary`)
+  //设置css变量
+  el.style.setProperty('--el-color-primary', LayoutSettingStore.color)
 }
 </script>
 <script lang="ts">
